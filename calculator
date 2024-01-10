@@ -1,0 +1,36 @@
+print("SIMPLE CALCULATOR!!....")
+def add(a,b):
+    return a+b
+def sub(a,b):
+    return a-b
+def mul(a,b):
+    return a*b
+def div(a,b):
+    return a/b
+operations={
+    '+':add,
+    '-':sub,
+    '*':mul,
+    '/':div
+}
+def calculator():
+    number1=int(input("Enter the first number:"))
+    for i in operations:
+        print(i)
+    continue_calculation=True
+    while continue_calculation:
+        symbol=input("Enter an operator")
+        number2=int(input("Enter the next number:"))
+        calculator_operation=operations[symbol]
+        output=calculator_operation(number1,number2)
+        print(f"{number1} {symbol} {number2} = {output}")
+        should_continue=input(f"Enter 'y' if you want continue with {output} , Enter 'n' for new calculation and 'x' for exit:")
+        if should_continue=='y':
+            number1=output
+        elif should_continue=='n':
+            continue_calculation==True
+            calculator()
+        else:
+            print("Have a nice Day!!")
+            break
+calculator()
